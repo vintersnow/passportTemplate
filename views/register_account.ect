@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= @title %></title>
+  <link rel="stylesheet" href="">
+
+</head>
+<body>
+  <h1>Creat a new account</h1>
+  <% if @message : %>
+  <p><%= @message %></p>
+  <%end%>
+ <form action="/register_account" method="post" accept-charset="utf-8">
+    <input type="text" name="email" data-bind="value: em, valueUpdate: 'afterkeydown'" placeholder="Email"><br>
+    <input type="password" data-bind="value: pw, valueUpdate: 'afterkeydown'" name="password" placeholder="Password"><br>
+    <input type="password" data-bind="value: pwc, valueUpdate: 'afterkeydown'" name="password_c" placeholder="Confirm Password"><span data-bind="text: ispwsame()"></span><br>
+    <input type="submit" data-bind="visible: enough_input()"value="Register Account">
+  </form>
+
+<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256.js" async defer></script>
+  <script src="/js/register_account.js" type="text/javascript" charset="utf-8" defer></script>
+</body>
+</html>
